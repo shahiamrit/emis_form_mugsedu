@@ -1,0 +1,624 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<h5>"Students Document View Portal"</h5>
+<header class="text-black text-center">
+    <img src={% static 'img/block1.jpg' %} class="img-fluid" alt='image'>
+</header>
+ <form class="row g-3 p-3" method="POST" enctype="multipart/form-data">
+    {% for i in data %}
+    <div class="column">
+      <div class="form-check-inline">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="Nepali" checked>
+        <label class="form-check-label" for="flexRadioDefault1">
+         {{i.nationality}}
+        </label>
+      </div>
+      <div class="form-check-inline">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="International">
+        <label class="form-check-label" for="flexRadioDefault2">
+          International
+        </label>
+      </div>
+  </div>
+
+  <!-- Drop Down -->
+
+  <!-- Image filed django -->
+  <div class="column">
+      <div class="col-md-2 col-sm-12 col-12 float-end">
+        <img src={{i.student_image.url}} class="img-fluid img-thumbnail" alt="image" style="width:200px; height: 140px"><br>
+</div>
+</div>
+
+<br>
+<br>
+<br>
+  <div class="row">
+  <div class="col-md-4">
+    <label for="inputState" class="form-label">* Graduate School/Campus</label>
+    <select id="inputState" class="form-select" name="school" required>
+      <option selected>{{i.graduate_school}}</option>
+    </select>
+  </div>
+</div>
+
+
+     <div class="col-md-4">
+         <label for="validationDefault01" class="form-label">*First Name</label>
+         <input type="text" class="form-control" id="validationDefault01" name="firstname" value="{{i.first_name}}" required>
+       </div>
+       <div class="col-md-4">
+         <label for="validationDefault02" class="form-label">Middle Name</label>
+         <input type="text" class="form-control" id="validationDefault02" name="middlename" value="{{i.middle_name}}">
+       </div>
+       <div class="col-md-4">
+        <label for="validationDefault02" class="form-label">*Last Name</label>
+        <input type="text" class="form-control" id="validationDefault02" name="lastname" value="{{i.last_name}}" required>
+      </div>
+
+      <div class="col-md-4">
+        <label for="validationDefault02" class="form-label">*Citizenship No.</label>
+        <input type="number" class="form-control" id="validationDefault02" name="citizenship" value="{{i.citizenship_no}}" required>
+      </div>
+      <div class="col-md-4">
+        <label for="validationDefault02" class="form-label">*Email</label>
+        <input type="text" class="form-control" id="validationDefault02" name="email" value="{{i.email}}" required>
+      </div>
+
+      <div class="col-md-4">
+        <label for="validationDefault02" class="form-label">*Contact No</label>
+        <input type="number" class="form-control" id="validationDefault02" name="contact" value="{{i.contact_no}}" required>
+      </div>
+
+      <div class="col-md-4">
+        <label for="validationDefault02" class="form-label">*Gender</label>
+        <input type="text" class="form-control" id="validationDefault02" name="gender" value="{{i.gender}}" required>
+      </div>
+
+      <div class="col-md-4">
+        <label for="validationDefault02" class="form-label">* Blood Group</label>
+        <input type="text" class="form-control" id="validationDefault02" name="blo" value="{{i.blood_group}}" required>
+      </div>
+      
+      <div class="col-md-4">
+        <label for="validationDefault02" class="form-label">* Ethnicity</label>
+        <input type="text" class="form-control" id="validationDefault02" name="eth" value="{{i.ethnicity}}" required>
+      </div>
+
+      <div class="col-md-4">
+        <label for="validationDefault02" class="form-label">Religion</label>
+        <input type="text" class="form-control" id="validationDefault02" name="rel" value="{{i.religion}}" required>
+      </div>
+
+      <div class="col-md-4">
+        <label for="validationDefault02" class="form-label">* Date of Birth (BS)</label>
+        <input type="text" class="form-control" id="validationDefault02" name="bs" placeholder="YYYY-MM-DD" value="{{i.date_of_birth_bs}}" required>
+      </div>
+
+
+      <div class="col-md-4">
+        <label for="validationDefault02" class="form-label">* Date of Birth (AD)</label>
+        <input type="text" class="form-control" id="validationDefault02" name="ad" placeholder="DD-MM-YYYY" value="{{i.date_of_birth_ad}}" required>
+      </div>
+
+      <div class="col-md-4">
+        <label for="validationDefault02" class="form-label">* Batch</label>
+        <input type="text" class="form-control" id="validationDefault02" name="batch" value="{{i.batch}}" required>
+      </div>
+    
+
+         <div class="col-md-4">
+        <label for="validationDefault02" class="form-label">Disability Status</label>
+        <input type="text" class="form-control" id="validationDefault02" name="disability" value="{{i.disability_status}}" >
+      </div>
+
+      <div class="col-md-4">
+        <label for="validationDefault02" class="form-label">Sponsorship Status</label>
+        <input type="text" class="form-control" id="validationDefault02" name="sponsorship" value="{{i.sponsorship_status}}">
+      </div>
+    
+      <div class="col-md-4">
+        <label for="validationDefault02" class="form-label">Rural District</label>
+        <input type="text" class="form-control" id="validationDefault02" name="rural" value="{{i.rural_district}}">
+      </div>
+
+      
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="defaultCheck1" name="martial" value="True">
+        <label class="form-check-label" for="defaultCheck1">
+            Martyr Lineage [{{i.martyr_lineage}}]
+        </label>
+      </div>
+     <!-- Block 2 -->
+      <header class="text-black text-center">
+        <img src={% static 'img/block2.jpg' %} class="img-fluid" alt='image'>
+    </header>
+      <div class="col-md-4">
+        <label for="validationDefault02" class="form-label">* School</label>
+        <input type="text" class="form-control" id="validationDefault02" name="school" value="{{i.school}}">
+      </div>
+
+      <div class="col-md-4">
+        <label for="validationDefault02" class="form-label">* Level</label>
+        <input type="text" class="form-control" id="validationDefault02" name="level" value="{{i.level}}">
+      </div>
+
+      <div class="col-md-4">
+        <label for="validationDefault02" class="form-label">* Program</label>
+        <input type="text" class="form-control" id="validationDefault02" name="program" value="{{i.program}}">
+      </div>
+
+      <div class="col-md-4">
+        <label for="validationDefault02" class="form-label">* Semester</label>
+        <input type="text" class="form-control" id="validationDefault02" name="semester" value="{{i.semester}}">
+      </div>
+
+      <div class="col-md-4">
+        <label for="validationDefault02" class="form-label">* Status</label>
+        <input type="text" class="form-control" id="validationDefault02" name="status" value="{{i.status}}">
+      </div>
+      <!-- Block 3 -->
+      <header class="text-black text-center">
+        <img src={% static 'img/block3.jpg' %} class="img-fluid" alt='image'>
+    </header>
+
+    <div class="col-md-2">
+        <label for="validationDefault02" class="form-label">* Degree Name</label>
+        <input type="text" class="form-control" id="validationDefault02" name="degname" value="{{i.degree_name}}">
+      </div>
+
+      <!-- Education history -->
+      <div class="col-md-2">
+        <label for="validationDefault02" class="form-label">* Board/University</label>
+        <input type="text" class="form-control" id="validationDefault02" name="university" required value="{{i.board_university}}">
+      </div>
+      <div class="col-md-2">
+        <label for="validationDefault02" class="form-label">* Grade/Division</label>
+        <input type="text" class="form-control" id="validationDefault02" name="grade" required value="{{i.brade_division}}">
+      </div>
+      <div class="col-md-2">
+        <label for="validationDefault02" class="form-label">* Institution Name</label>
+        <input type="text" class="form-control" id="validationDefault02" name="institution" required value="{{i.insitution}}">
+      </div>
+      <div class="col-md-2">
+        <label for="inputState" class="form-label">* Insitution Type</label>
+        <select id="inputState" class="form-select" name="instype" required>
+          <option selected>{{i.insitution_type}}</option>
+          <option selected>Private</option>
+        </select>
+      </div>
+    
+      <div class="col-md-2">
+            <label for="formFile" class="form-label">* Certificate of Completion</label>
+            {% if i.certificate_of_completion %}
+            <a href="{{i.certificate_of_completion.url}}" target="_blank" class="link-danger"><span class="btn btn-danger w-80 h-40">Download</span></a>
+            {% else %}
+            <p>No File</p> 
+            {% endif %}    
+      </div>
+      <div class="col-md-2">
+        <label for="formFile" class="form-label">* Transcript</label>
+        {% if i.transcipt %}
+        <a href="{{i.transcipt.url}}" target="_blank" class="link-danger"><span class="btn btn-danger w-80 h-40">Download</span></a>   
+        {% else %}
+        <p>No File</p>  
+        {% endif %}
+  </div>
+      <div class="col-md-2">
+        <label for="formFile" class="form-label">Provisional</label>
+        {% if i.provisional %}
+        <a href="{{i.provisional.url}}" target="_blank" class="link-danger"><span class="btn btn-danger w-80 h-40">Download</span></a> 
+        {% else %}
+        <p>No File</p>  
+        {% endif %} 
+  </div>
+
+  <div class="col-md-2">
+    <label for="formFile" class="form-label">Migration</label>
+    {% if i.migration %}
+    <a href="{{i.migration.url}}" target="_blank" class="link-danger"><span class="btn btn-danger w-80 h-40">Download</span></a>
+    {% else %}
+    <p>No File</p>    
+    {% endif %}
+</div>
+
+<div class="col-md-2">
+    <label for="validationDefault02" class="form-label">* CGPA/Percentage</label>
+    <input type="text" class="form-control" id="validationDefault02" name="cgpa" required value="{{i.cgpa}}">
+  </div>
+
+  <div class="col-md-2">
+    <label for="inputState" class="form-label">* Enrollment Year (AD)</label>
+    <input type="text" class="form-control" id="validationDefault02" name="enrollmentyr" required value="{{i.enrollment}}">
+   
+  </div>
+
+  <div class="col-md-2">
+    <label for="inputState" class="form-label">* Completion Year (AD)</label>
+    <input type="text" class="form-control" id="validationDefault02" name="completionyr" required value="{{i.completion}}">
+   
+  </div>
+<hr style="height: 2px;">
+  <div class="col-md-2">
+    <label for="inputState" class="form-label">* Degree Name</label>
+    <input type="text" class="form-control" id="validationDefault02" name="completionyr" required value="{{i.degname1}}">
+   
+  </div>
+  <!-- Education history -->
+  <div class="col-md-2">
+    <label for="validationDefault02" class="form-label">* Board/University</label>
+    <input type="text" class="form-control" id="validationDefault02" name="university1" required value="{{i.university1}}">
+  </div>
+  <div class="col-md-2">
+    <label for="validationDefault02" class="form-label">* Grade/Division</label>
+    <input type="text" class="form-control" id="validationDefault02" name="grade1" required value="{{i.grade1}}">
+  </div>
+  <div class="col-md-2">
+    <label for="validationDefault02" class="form-label">* Institution Name</label>
+    <input type="text" class="form-control" id="validationDefault02" name="institution1" required value="{{i.institution1}}">
+  </div>
+  <div class="col-md-2">
+    <label for="inputState" class="form-label">* Insitution Type</label>
+    <select id="inputState" class="form-select" name="instype1" required>
+      <option selected>{{i.instype1}}</option>
+    </select>
+  </div>
+  
+  <div class="col-md-2">
+        <label for="formFile" class="form-label">* Certificate of Completion</label>
+        {% if i.coc1 %}
+        <a href="{{i.coc1.url}}" target="_blank" class="link-danger"><span class="btn btn-danger w-80 h-40">Download</span></a>
+        {% else %}
+        <p>No File</p>    
+        {% endif %}
+  </div>
+  <div class="col-md-2">
+    <label for="formFile" class="form-label">* Transcript</label>
+    {% if i.tsc1 %}
+    <a href="{{i.tsc1.url}}" target="_blank" class="link-danger"><span class="btn btn-danger w-80 h-40">Download</span></a>
+    {% else %}
+    <p>No File</p>
+    {% endif %}
+</div>
+  <div class="col-md-2">
+    <label for="formFile" class="form-label">Provisional</label>
+    {% if i.prl1 %}
+    <a href="{{i.prl1.url}}" target="_blank" class="link-danger"><span class="btn btn-danger w-80 h-40">Download</span></a>
+    {% else %}
+    <p>No File</p>
+    {% endif %}
+</div>
+
+<div class="col-md-2">
+<label for="formFile" class="form-label">Migration</label>
+{% if i.mgr1 %}
+<a href="{{i.mgr1.url}}" target="_blank" class="link-danger"><span class="btn btn-danger w-80 h-40">Download</span></a>
+{% else %}
+<p>No File</p>
+{% endif %}
+</div>
+
+<div class="col-md-2">
+<label for="validationDefault02" class="form-label">CGPA/Percentage</label>
+<input type="text" class="form-control" id="validationDefault02" name="cgp1" value="{{i.cgpa1}}">
+</div>
+
+<div class="col-md-2">
+<label for="inputState" class="form-label">Enrollment Year (AD)</label>
+<input type="text" class="form-control" id="validationDefault02" name="enrollmentyr1" value="{{i.enrollmentyr1}}">
+
+</div>
+
+<div class="col-md-2">
+<label for="inputState" class="form-label">Completion Year (AD)</label>
+<input type="text" class="form-control" id="validationDefault02" name="completionyr1" value="{{i.completionyr1}}">
+
+</div>
+
+<hr style="height: 2px;">
+<div class="col-md-2">
+<label for="inputState" class="form-label">Degree Name</label>
+{% if i.degname2 %}
+<input type="text" class="form-control" id="validationDefault02" name="degname" value="{{i.degname2}}">
+{% else %}
+<h1>No Data</h1>
+{% endif %}
+</div>
+
+  <!-- Education history -->
+  <div class="col-md-2">
+    <label for="validationDefault02" class="form-label">Board/University</label>
+    {% if i.university2 %}
+    <input type="text" class="form-control" id="validationDefault02" name="university2" value="{{i.university2}}">
+    {% else %}
+    <p>No Data</p>
+    {% endif %}
+  </div>
+  <div class="col-md-2">
+    <label for="validationDefault02" class="form-label">Grade/Division</label>
+    {% if i.grade2 %}
+    <input type="text" class="form-control" id="validationDefault02" name="grade2" value="{{i.grade2}}">
+    {% else %}
+    <p>No Data</p>
+    {% endif %}
+  </div>
+  <div class="col-md-2">
+    <label for="validationDefault02" class="form-label">Institution Name</label>
+    {% if i.institution2 %}
+    <input type="text" class="form-control" id="validationDefault02" name="institution2" value="{{i.institution2}}">
+    {% else %}
+    <p>No Data</p>
+    {% endif %}
+  </div>
+  <div class="col-md-2">
+    <label for="inputState" class="form-label">Insitution Type</label>
+    <select id="inputState" class="form-select" name="instype2">
+        {% if i.instype2 %}
+      <option selected>{{i.instype2}}</option>
+      {% else %}
+      <p>No Data</p>
+      {% endif %}
+    </select>
+  </div>
+  
+  <div class="col-md-2">
+        <label for="formFile" class="form-label">Certificate of Completion</label>
+        {% if i.coc2 %}
+        <a href="{{i.coc2.url}}" target="_blank" class="link-danger"><span class="btn btn-danger w-80 h-40">Download</span></a>
+        {% else %}
+        <p>No File</p>
+        {% endif %}
+  </div>
+  <div class="col-md-2">
+    <label for="formFile" class="form-label">Transcript</label>
+    {% if i.tsc2 %}
+    <a href="{{i.tsc2.url}}" target="_blank" class="link-danger"><span class="btn btn-danger w-80 h-40">Download</span></a>
+    {% else %}
+    <p>No File</p>
+    {% endif %}
+</div>
+  <div class="col-md-2">
+    <label for="formFile" class="form-label">Provisional</label>
+    {% if i.prl2 %}
+    <a href="{{i.prl2.url}}" target="_blank" class="link-danger"><span class="btn btn-danger w-80 h-40">Download</span></a>
+    {% else %}
+    <p>No File</p>
+    {% endif %}
+</div>
+
+<div class="col-md-2">
+<label for="formFile" class="form-label">Migration</label>
+{% if i.mgr2 %}
+<a href="{{i.mgr2.url}}" target="_blank" class="link-danger"><span class="btn btn-danger w-80 h-40">Download</span></a>
+{% else %}
+<p>No File</p>
+{% endif %}
+</div>
+
+<div class="col-md-2">
+<label for="validationDefault02" class="form-label">CGPA/Percentage</label>
+{% if i.cgpa2 %}
+<input type="text" class="form-control" id="validationDefault02" name="cgpa2" value="{{i.cgpa2}}">
+{% else %}
+<p>No Data</p>
+{% endif %}
+</div>
+
+<div class="col-md-2">
+<label for="inputState" class="form-label">Enrollment Year (AD)</label>
+{% if i.enrollmentyr2 %}
+<input type="text" class="form-control" id="validationDefault02" name="enrollmentyr2" value="{{i.enrollmentyr2}}">
+{% else %}
+<p>No Data</p>
+{% endif %}
+</div>
+
+<div class="col-md-2">
+<label for="inputState" class="form-label">Completion Year (AD)</label>
+{% if i.completionyr2 %}
+<input type="text" class="form-control" id="validationDefault02" name="completionyr2" value="{{i.completionyr2}}">
+{% else %}
+<p>No data</p>
+{% endif %}
+<!-- block 4 -->
+
+</div>
+  
+<header class="text-black text-center">
+    <img src={% static 'img/block4.jpg' %} class="img-fluid" alt='image'>
+</header>
+<div class="col-md-2">
+    <label for="validationDefault02" class="form-label">Year (AD)</label>
+    {% if i.year %}
+    <input type="date" class="form-control" id="validationDefault02" name="ayear" value="{{i.year}}">
+    {% else %}
+    <p>No Data</p>
+    {% endif %}
+  </div>
+  <div class="col-md-2">
+    <label for="validationDefault02" class="form-label">Title</label>
+    {% if i.title %}
+    <input type="text" class="form-control" id="validationDefault02" name="atitle" value="{{i.title}}">
+    {% else %}
+    <p>No Data</p>
+    {% endif %}
+  </div>
+  <div class="col-md-2">
+    <label for="formFile" class="form-label">Certificate</label>
+    {% if i.certificate %}
+    <a href="{{i.certificate.url}}" target="_blank" class="link-danger"><span class="btn btn-danger w-80 h-40">Download</span></a>
+    {% else %}
+    <p>No File</p>
+    {% endif %}
+    </div>
+    <div class="col-md-2">
+        <label for="validationDefault02" class="form-label">Remarks</label>
+        {% if i.remarks %}
+        <input type="text" class="form-control" id="validationDefault02" name="aremarks" value="{{i.remarks}}">
+        {% else %}
+        <p>No Data</p>
+        {% endif %}
+      </div>
+
+      <header class="text-black text-center">
+        <img src={% static 'img/block5.jpg' %} class="img-fluid" alt='image'>
+    </header>
+      <div class="col-md-2">
+          <label for="validationDefault02" class="form-label">* Father's Name</label>
+          <input type="text" class="form-control" id="validationDefault02" name="fname" required value="{{i.father_name}}">
+        </div>
+      
+        <div class="col-md-2">
+          <label for="validationDefault02" class="form-label">* Mother's Name</label>
+          <input type="text" class="form-control" id="validationDefault02" name="mname" required value="{{i.mother_name}}">
+        </div>
+
+        <div class="col-md-2">
+            <label for="validationDefault02" class="form-label">* Father's Phone</label>
+            <input type="number" class="form-control" id="validationDefault02" name="fphone" required value="{{i.father_phone}}">
+          </div>
+        
+          <div class="col-md-2">
+            <label for="validationDefault02" class="form-label">* Mother's Phone</label>
+            <input type="number" class="form-control" id="validationDefault02" name="mphone" required value="{{i.mother_phone}}">
+          </div>
+
+          <div class="col-md-2">
+            <label for="validationDefault02" class="form-label">Father's Email</label>
+            <input type="text" class="form-control" id="validationDefault02" name="femail" value="{{i.father_email}}">
+          </div>
+
+          <div class="col-md-2">
+            <label for="validationDefault02" class="form-label">Mother's Email</label>
+            <input type="text" class="form-control" id="validationDefault02" name="memail" value="{{i.mother_email}}">
+          </div>
+
+          <div class="col-md-2">
+            <label for="validationDefault02" class="form-label">Father's Profession</label>
+            <input type="text" class="form-control" id="validationDefault02" name="fprofession" value="{{i.father_profession}}">
+          </div>
+          <div class="col-md-2">
+            <label for="validationDefault02" class="form-label">Mother's Profession</label>
+            <input type="text" class="form-control" id="validationDefault02" name="mprofession" value="{{i.mother_profession}}">
+          </div>
+
+          <div class="col-md-2">
+            <label for="validationDefault02" class="form-label">* Emergency Contact Name</label>
+            <input type="text" class="form-control" id="validationDefault02" name="eemergencycontatname" required value="{{i.eemergencycontatname}}">
+          </div>
+          <div class="col-md-2">
+            <label for="validationDefault02" class="form-label">* Emergency Contact Number</label>
+            <input type="number" class="form-control" id="validationDefault02" name="econtact" required value="{{i.eemergency}}">
+          </div>
+
+          <div class="col-md-2">
+            <label for="validationDefault02" class="form-label">* Address</label>
+            <input type="text" class="form-control" id="validationDefault02" name="addressfield" required value="{{i.address}}">
+          </div>
+          
+          <div class="col-md-2">
+            <label for="validationDefault02" class="form-label">* Relation with Student</label>
+            <input type="text" class="form-control" id="validationDefault02" name="rwstudent" required value="{{i.relation_with_student}}">
+          </div>
+     
+
+          <header class="text-black text-center">
+            <img src={% static 'img/block6.jpg' %} class="img-fluid" alt='image'>
+        </header>
+      <div class="col-md-2">
+        <label for="inputState" class="form-label">* Province</label>
+        <select id="inputState" class="form-select" name="provice" required>
+          <option selected>{{i.province}}</option>
+        </select>
+      </div>
+
+      <div class="col-md-2">
+        <label for="validationDefault02" class="form-label">* District</label>
+        <input type="text" class="form-control" id="validationDefault02" name="district" required value="{{i.district}}">
+      </div>
+
+      <div class="col-md-2">
+        <label for="validationDefault02" class="form-label">* Palika/Rural Palika</label>
+        <input type="text" class="form-control" id="validationDefault02" name="palika" required value="{{i.palika}}">
+      </div>
+
+      <div class="col-md-2">
+        <label for="validationDefault02" class="form-label">* Ward No</label>
+        <input type="number" class="form-control" id="validationDefault02" name="wardno" required value="{{i.ward_no}}">
+      </div>
+      <div class="col-md-2">
+        <label for="validationDefault02" class="form-label">* Street Name</label>
+        <input type="text" class="form-control" id="validationDefault02" name="streetname" required value="{{i.street_name}}">
+      </div>
+
+      <div class="col-md-2">
+        <label for="validationDefault02" class="form-label">House No</label>
+        <input type="text" class="form-control" id="validationDefault02" name="houseno" value="{{i.house_no}}">
+      </div>
+
+      <header class="text-black text-center">
+        <img src={% static 'img/block7.jpg' %} class="img-fluid" alt='image'>
+    </header>
+</header>
+<div class="col-md-2">
+  <label for="inputState" class="form-label">* Province</label>
+  <select id="inputState" class="form-select" name="provice1" required>
+    <option selected>{{i.province_d}}</option>
+  </select>
+</div>
+
+<div class="col-md-2">
+  <label for="validationDefault02" class="form-label">* District</label>
+  <input type="text" class="form-control" id="validationDefault02" name="district1" required value="{{i.district_d}}">
+</div>
+
+<div class="col-md-2">
+  <label for="validationDefault02" class="form-label">* Palika/Rural Palika</label>
+  <input type="text" class="form-control" id="validationDefault02" name="palika1" required value="{{i.palika_d}}">
+</div>
+
+<div class="col-md-2">
+  <label for="validationDefault02" class="form-label">* Ward No</label>
+  <input type="number" class="form-control" id="validationDefault02" name="wardno1" required value="{{i.ward_no_d}}">
+</div>
+<div class="col-md-2">
+  <label for="validationDefault02" class="form-label">* Street Name</label>
+  <input type="text" class="form-control" id="validationDefault02" name="streetname1" required value="{{i.street_name_d}}">
+</div>
+
+<div class="col-md-2">
+  <label for="validationDefault02" class="form-label">House No</label>
+  <input type="text" class="form-control" id="validationDefault02" name="houseno1" value="{{i.house_no_d}}">
+</div>
+    <!-- Block 8 -->
+      <header class="text-black text-center">
+        <img src={% static 'img/block8.jpg' %} class="img-fluid" alt='image'>
+    </header>
+      <div class="col-md-3">
+        <label for="validationDefault02" class="form-label">Bank Name: </label>
+        <input type="text" class="form-control" id="validationDefault02" name="bname" value="{{i.bank_name}}">
+      </div>
+      <div class="col-md-3">
+        <label for="validationDefault02" class="form-label">Branch: </label>
+        <input type="text" class="form-control" id="validationDefault02" name="branch" value="{{i.branch}}">
+      </div>
+      <div class="col-md-3">
+        <label for="validationDefault02" class="form-label">Bank Account No.: </label>
+        <input type="number" class="form-control" id="validationDefault02" name="ban" value="{{i.bank_account_number}}">
+      </div>
+      <div class="col-lg-3">
+        <label for="validationDefault02" class="form-label">Registered Bank Account Ph. No.: </label>
+        <input type="number" class="form-control" id="validationDefault02" name="rbn" value="{{i.bank_phone_number}}">
+      </div>
+
+      <!-- <div class="col-lg-3">
+        <input type="submit" class="form-control btn-danger" id="validationDefault02" >
+      </div>
+       -->
+       <p>Completed</p>
+   </form>
+   {% endfor %}
+
+{% endblock %}
+

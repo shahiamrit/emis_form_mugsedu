@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container-fluid py-0">
+    <div class="row py-0">
+        <div class="col-lg-12 mx-auto">
+            <div class="input-group mb-3 px-4 py-0 bg-white shadow-sm">
+              
+                <div>
+                    <table class="table table-bordered">
+                        <thead class="thead-dark">
+                          <tr>
+                            <th scope="col">S.N</th>
+                            <th scope="col">Institution Name</th>
+                            <th scope="col">Full Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Contact</th>
+                            <th scope="col">Semester</th>
+                            <th scope="col">Batch</th>
+                            <th scope="col">Profile</th>
+                            <th scope="col">Status</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            {% for i in data %}
+                            <tr class="table-info">
+                            <td>{{i.id}}</td>
+                            <td>{{i.graduate_school}}</td>
+                            <td>{{i.first_name}}{{i.last_name}}</td>
+                            <td>{{i.email}}</td>
+                            <td>{{i.contact_no}}</td>
+                            <td>{{i.semester}}</td>
+                            <td>{{i.batch}}</td>
+                            {% if i.student_image %}
+                            <td><img src={{i.student_image.url}} class="img-fluid img-thumbnail" alt={{i.first_name}} style="width:80px; height: 60px"></td>
+                            {% else %}
+                            <td><img src='' class="img-fluid img-thumbnail" alt={{i.first_name}} style="width:80px; height: 40px"></td>
+                            {% endif %}
+                            <td>
+                                <a href="{% url 'update' i.id %}" class="btn btn-warning btn-sm"><i class="fa-regular fa-pen-to-square"></i></a>
+                                <form action="{% url 'delete' i.id %}" method="POST" class="d-inline">
+                                    {% csrf_token %}
+                                  <button type="submit" class="btn btn-danger btn-sm">
+                                    <i class="fa-regular fa-trash-can"></i>
+                                  </button>
+                                </form>
+                                </td>
+
+                        </tr>
+                          {% endfor %}
+                        </tbody>
+                      </table>
+                         
+                   
+                </div>
+            </div>
+            
+        </div>
+
+    </div>
+
+
+</div>
+<p>© Developed by 2023 IT Dept MU</p>
+<style>
+    #upload {
+        opacity: 0;
+    }
+    .image-area {
+        border: 3px dotted rgba(8, 18, 94, 0.7);
+        padding: 1rem;
+    }
+    .form-control {
+    width: 250px !important;
+    color:blue;
+}
+   #show{
+    display: inline-block;
+   }
+   #hide{
+    display: none;
+   }
+   #img01 {
+    width: 600px;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+   }
+</style>
+{% endblock %}
