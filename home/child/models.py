@@ -14,7 +14,7 @@ class Form(models.Model):
     last_name = models.CharField(max_length=100, blank=True, null=True)
     citizenship_no = models.CharField(max_length=100, blank=True, null=True)
     email = models.EmailField(max_length=100, blank=True, null=True)
-    contact_no = models.IntegerField()
+    contact_no = models.CharField(max_length=100, blank=True, null=True)
     gender = models.CharField(max_length=100, blank=True, null=True)
     blood_group = models.CharField(max_length=100, blank=True, null=True)
     ethnicity = models.CharField(max_length=100, blank=True, null=True)
