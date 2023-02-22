@@ -105,17 +105,17 @@ class Form(models.Model):
     province_d = models.CharField(max_length=100, blank=True, null=True)
     district_d = models.CharField(max_length=100, blank=True, null=True)
     palika_d = models.CharField(max_length=100, blank=True, null=True)
-    ward_no_d = models.IntegerField()
+    ward_no_d = models.BigIntegerField()
     street_name_d = models.CharField(max_length=100, blank=True, null=True)
-    house_no_d = models.IntegerField()
+    house_no_d = models.BigIntegerField()
 
     # Other information
 
     # Bank Details 
     bank_name = models.CharField(max_length=100, blank=True, null=True)
     branch = models.CharField(max_length=100, blank=True, null=True)
-    bank_account_number = models.IntegerField()
-    bank_phone_number = models.IntegerField()
+    bank_account_number = models.CharField(max_length=100, blank=True, null=True)
+    bank_phone_number = models.CharField(max_length=100, blank=True, null=True)
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
