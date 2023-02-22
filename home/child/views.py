@@ -1,8 +1,12 @@
 from django.shortcuts import render, HttpResponse, HttpResponseRedirect
 from .models import Form
-
+from django.contrib import messages
 # Create your views here.
+# Login and Logout
+from django.contrib.auth import authenticate, login, logout
 
+# decorator
+from django.contrib.auth.decorators import login_required
 
 def home(request):
     if request.method == 'POST':
@@ -126,6 +130,7 @@ def home(request):
 
     return render(request, 'index.html')
 
+@login_required(login_url='login')
 def eadmin(request):
     data = Form.objects.all()
     return render(request, 'eadmin.html', {'data': data})
@@ -138,4 +143,20 @@ def deleteView(request, pk):
     data = Form.objects.all().filter(id=pk)
     data.delete()
     return HttpResponseRedirect('/eadmin')
+
+def LoginView(request):
+    if request.method == 'POST':
+        usrname = request.POST.get('lemail', '')
+        psswd = request.POST.get('lpassword', '')
+        usr = authenticate(username=usrname, password=psswd)
+        if usr is not None:
+            login(request, usr)
+            messages.success(request, 'Logged in Successfully !!')
+            return HttpResponseRedirect('eadmin')
+    else:
+        return render(request, 'login.html')
+    return render(request, 'login.html')
     
+def LogoutView(request):
+    logout(request)
+    return HttpResponseRedirect('login')
