@@ -82,14 +82,14 @@ class Form(models.Model):
     # Guardian Information
     father_name = models.CharField(max_length=100, blank=True, null=True)
     mother_name = models.CharField(max_length=100, blank=True, null=True)
-    father_phone = models.IntegerField()
-    mother_phone = models.IntegerField()
+    father_phone = models.CharField(max_length=100, blank=True, null=True)
+    mother_phone = models.CharField(max_length=100, blank=True, null=True)
     father_email = models.EmailField()
     mother_email = models.EmailField()
     father_profession = models.CharField(max_length=100, blank=True, null=True)
     mother_profession = models.CharField(max_length=100, blank=True, null=True)
     eemergencycontatname = models.CharField(max_length=100, blank=True, null=True)
-    eemergency = models.IntegerField()
+    eemergency = models.CharField(max_length=100, blank=True, null=True)
     address = models.CharField(max_length=100, blank=True, null=True)
     relation_with_student = models.CharField(max_length=100, blank=True, null=True)
 

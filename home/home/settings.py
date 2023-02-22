@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-l5a9atjjb)&4pv&&v6%)isdsxoe7c_hvx$5cn^gy!@k7lvm70j'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'eform.mugsedu.edu.np', 'www.eform.mugsedu.edu.np']
 
