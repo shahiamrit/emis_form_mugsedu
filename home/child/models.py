@@ -13,6 +13,7 @@ class Form(models.Model):
     middle_name = models.CharField(max_length=100, blank=True, null=True)
     last_name = models.CharField(max_length=100, blank=True, null=True)
     citizenship_no = models.CharField(max_length=100, blank=True, null=True)
+    cit_att = models.ImageField(blank=True, null=True)
     email = models.EmailField(max_length=100, blank=True, null=True)
     contact_no = models.CharField(max_length=100, blank=True, null=True)
     gender = models.CharField(max_length=100, blank=True, null=True)

@@ -61,6 +61,19 @@
         <label for="validationDefault02" class="form-label">*Citizenship No.</label>
         <input type="number" class="form-control" id="validationDefault02" name="citizenship" value="{{i.citizenship_no}}" required>
       </div>
+
+
+      <div class="col-md-2">
+        <label for="formFile" class="form-label">* Citizenship</label>
+        {% if i.cit_att %}
+        <a href="{{i.cit_att.url}}" target="_blank" class="link-danger"><span class="btn btn-danger w-80 h-40">Download</span></a>
+        {% else %}
+        <p>No File</p> 
+        {% endif %}    
+  </div>
+
+
+
       <div class="col-md-4">
         <label for="validationDefault02" class="form-label">*Email</label>
         <input type="text" class="form-control" id="validationDefault02" name="email" value="{{i.email}}" required>
