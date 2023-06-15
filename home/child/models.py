@@ -66,7 +66,7 @@ class Form(models.Model):
     grade2 = models.CharField(max_length=100, blank=True, null=True)
     institution2 = models.CharField(max_length=100, blank=True, null=True)
     instype2 = models.CharField(max_length=100, blank=True, null=True)
-    coc2 = models.CharField(max_length=100, blank=True, null=True)
+    coc2 = models.ImageField(blank=True, null=True)
     tsc2 = models.ImageField(blank=True, null=True)
     prl2 = models.ImageField(blank=True, null=True)
     mgr2 = models.ImageField(blank=True, null=True)
