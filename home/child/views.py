@@ -135,11 +135,11 @@ def home(request):
 def eadmin(request):
     data = Form.objects.all()
     return render(request, 'eadmin.html', {'data': data})
-
+@login_required(login_url='login')
 def updateView(request, pk):
     data = Form.objects.all().filter(id=pk)
     return render(request, 'update.html', {'data': data})
-
+@login_required(login_url='login')
 def deleteView(request, pk):
     data = Form.objects.all().filter(id=pk)
     data.delete()
